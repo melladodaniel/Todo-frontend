@@ -59,11 +59,41 @@ function TodoList() {
     });
   };
 
-  const completeTodo = (id) => {
+ /* const completeTodo = (id) => {
     let updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
         todo.is_done = !todo.is_done;
         patchTodo(id, { is_done: todo.is_done }); // Actualiza el valor en el backend
+      }
+      return todo;
+    });
+    setTodos(updatedTodos);
+  }; */
+
+  /*const completeTodo = async (id) => {
+    try {
+      const toDoEditFilter = todos.filter((todo) => todo.id === id);
+      // console.log("edit", toDoEditFilter[0]);
+      await axios.patch(`http://localhost:3000/v1/to-dos/${id}`, {
+        isDone: !toDoEditFilter[0].isDone,
+      });
+
+      let updatedTodos = todos.map((todo) => {
+        if (todo.id === id) {
+          todo.isDone = !todo.isDone;
+        }
+        return todo;
+      });
+      setTodos(updatedTodos);
+    } catch (error) {
+      console.error(error);
+    }
+  };*/
+  const completeTodo = (id) => {
+    let updatedTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        todo.isDone = !todo.isDone;
+        patchTodo(id, { isDone: todo.isDone }); // Actualiza el valor en el backend
       }
       return todo;
     });
